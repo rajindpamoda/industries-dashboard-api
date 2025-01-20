@@ -1,15 +1,26 @@
 # Base Node.js image
 FROM node:18-alpine AS build
 
-# Set the working directory
-WORKDIR /app
+# Set working directory in the container
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json and install dependencies
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy the source code
+# Copy all code to the container directory
 COPY . .
 
-# Command to run the application in development mode
-CMD ["npm", "run", "dev"]
+# Build the TypeScript code
+RUN npm run build
+
+# Expose the port that the application runs on
+EXPOSE 3000
+
+# Set the environment to production
+ENV NODE_ENV=production
+
+# Start the application
+CMD ["npm", "start"]
