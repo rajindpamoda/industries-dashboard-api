@@ -1,0 +1,40 @@
+# Node.js modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# TypeScript
+*.tsbuildinfo
+
+# Build output
+dist/
+
+# Docker
+docker-compose.override.yml
+*.env
+
+# IDE Specific
+.vscode/
+.idea/
+*.swp
+
+# MacOS specific
+.DS_Store
+
+# Tests output
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# System specific files
+Thumbs.db
